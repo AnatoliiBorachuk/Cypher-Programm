@@ -7,38 +7,19 @@ namespace CypherProgramm
     {
         private const int MinRandomRange = 1000;
         private const int MaxRandomRange = 10000;
-        private Random random;
-        private RSA rsa;
+
+        private Random random = new Random();
+        private RSA rsa = new RSA();
 
         public mainWindow()
         {
             InitializeComponent();
-
-            random = new Random();
-            rsa = new RSA();
 
             qField.Value = GetRandomValueIntoMinMaxRange();
             pField.Value = GetRandomValueIntoMinMaxRange();
         }
 
         #region Controll callbacks
-        private void encodeText_TextChanged(object sender, EventArgs e)
-        {
-            rsa.Initialize(pField.Value.ToString(), qField.Value.ToString());
-            string[] enryptedMessage = rsa.Encrypt(encodeText.Text);
-            decodeText.Text = string.Join(" ", enryptedMessage);
-
-            nField.Value = rsa.N;
-            dField.Value = rsa.D;
-            eField.Value = rsa.E;
-        }
-
-        private void decodeText_TextChanged(object sender, EventArgs e)
-        {
-            string[] enryptedMessage = decodeText.Text.Split(' ');
-            decodeText.Text = rsa.Decrypt(enryptedMessage);
-        }
-
         private void randomPButton_Click(object sender, EventArgs e)
         {
             pField.Value = GetRandomValueIntoMinMaxRange();
@@ -67,5 +48,31 @@ namespace CypherProgramm
             return true;
         }
         #endregion
+
+        private void encodeButton_Click(object sender, EventArgs e)
+        {
+            EncodeField();
+        }
+
+        private void EncodeField()
+        {
+            rsa.Initialize(pField.Value.ToString(), qField.Value.ToString());
+            decodeText.Text = string.Join(" ", rsa.Encrypt(encodeText.Text));
+
+            nField.Value = rsa.N;
+            dField.Value = rsa.D;
+            eField.Value = rsa.E;
+        }
+
+        private void decodeButton_Click(object sender, EventArgs e)
+        {
+            DecodeField();
+        }
+
+        private void DecodeField ()
+        {
+            var enryptedMessage = decodeText.Text.Split(' ');
+            encodeText.Text = rsa.Decrypt(enryptedMessage);
+        }
     }
 }

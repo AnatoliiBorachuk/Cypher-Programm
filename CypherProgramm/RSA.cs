@@ -67,13 +67,10 @@ namespace CypherProgramm
         {
             var data = new List<string>();
 
-            BigInteger num;
-
             foreach (var ch in text)
             {
-                int symbol = ch;
-
-                num = BigInteger.ModPow(symbol, e, n);
+                var symbol = new BigInteger(ch);
+                var num = BigInteger.ModPow(symbol, e, n);
 
                 data.Add(num.ToString());
             }

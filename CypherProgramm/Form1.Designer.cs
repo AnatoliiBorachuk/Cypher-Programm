@@ -45,6 +45,8 @@ namespace CypherProgramm
             this.decodeText = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.encodeButton = new System.Windows.Forms.Button();
+            this.decodeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nField)).BeginInit();
@@ -186,12 +188,12 @@ namespace CypherProgramm
             // 
             // encodeText
             // 
+            this.encodeText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.encodeText.Location = new System.Drawing.Point(12, 140);
             this.encodeText.Name = "encodeText";
             this.encodeText.Size = new System.Drawing.Size(130, 186);
             this.encodeText.TabIndex = 12;
             this.encodeText.Text = "Encode message";
-            this.encodeText.TextChanged += new System.EventHandler(this.encodeText_TextChanged);
             // 
             // decodeText
             // 
@@ -200,7 +202,6 @@ namespace CypherProgramm
             this.decodeText.Size = new System.Drawing.Size(130, 186);
             this.decodeText.TabIndex = 13;
             this.decodeText.Text = "Decode message";
-            this.decodeText.TextChanged += new System.EventHandler(this.decodeText_TextChanged);
             // 
             // label1
             // 
@@ -222,12 +223,40 @@ namespace CypherProgramm
             this.label2.TabIndex = 15;
             this.label2.Text = "←";
             // 
+            // encodeButton
+            // 
+            this.encodeButton.BackColor = System.Drawing.Color.Silver;
+            this.encodeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.encodeButton.ForeColor = System.Drawing.Color.Black;
+            this.encodeButton.Location = new System.Drawing.Point(12, 333);
+            this.encodeButton.Name = "encodeButton";
+            this.encodeButton.Size = new System.Drawing.Size(130, 54);
+            this.encodeButton.TabIndex = 16;
+            this.encodeButton.Text = "Encode";
+            this.encodeButton.UseVisualStyleBackColor = false;
+            this.encodeButton.Click += new System.EventHandler(this.encodeButton_Click);
+            // 
+            // decodeButton
+            // 
+            this.decodeButton.BackColor = System.Drawing.Color.Silver;
+            this.decodeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.decodeButton.ForeColor = System.Drawing.Color.Black;
+            this.decodeButton.Location = new System.Drawing.Point(178, 333);
+            this.decodeButton.Name = "decodeButton";
+            this.decodeButton.Size = new System.Drawing.Size(130, 54);
+            this.decodeButton.TabIndex = 17;
+            this.decodeButton.Text = "Decode";
+            this.decodeButton.UseVisualStyleBackColor = false;
+            this.decodeButton.Click += new System.EventHandler(this.decodeButton_Click);
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(324, 338);
+            this.ClientSize = new System.Drawing.Size(324, 411);
+            this.Controls.Add(this.decodeButton);
+            this.Controls.Add(this.encodeButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.decodeText);
@@ -275,6 +304,8 @@ namespace CypherProgramm
         private System.Windows.Forms.RichTextBox decodeText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button encodeButton;
+        private System.Windows.Forms.Button decodeButton;
     }
 }
 
